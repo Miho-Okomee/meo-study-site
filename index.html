@@ -3,28 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEO副業（MDSビジネス）完全手順書</title>
+  <title>MEO副業（MDSビジネス）手順書</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== フロー図 ===== */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .flow-item {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid var(--border);
+    }
+    .flow-item:last-child { border-bottom: none; }
+    .flow-phase {
+      background: linear-gradient(135deg, var(--primary) 0%, #0d47a1 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .flow-body {
+      padding: 16px 20px;
+      flex: 1;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .flow-body strong { color: var(--text); display: block; margin-bottom: 4px; }
+    .flow-arrow {
+      text-align: center;
+      font-size: 20px;
+      color: var(--primary);
+      padding: 4px 0;
+      background: #f0f4ff;
+    }
+
+    /* ===== 採点テーブル ===== */
+    .score-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .score-a { background: #e6f4ea; color: #137333; }
+    .score-b { background: #fef9e7; color: #b45309; }
+    .score-c { background: #fce8e6; color: #c5221f; }
+
+    /* ===== テンプレートカード ===== */
+    .template-card {
+      background: #f8faff;
+      border: 1px solid #c5d7fb;
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .template-card .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .template-card .body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    /* ===== 自動化フロー ===== */
+    .auto-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .auto-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .auto-step:not(:last-child)::after {
+      display: none;
+    }
+    .auto-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-auto { background: #e8f0fe; color: var(--primary); }
+    .badge-manual { background: #e6f4ea; color: var(--success); }
+
+    /* ===== 価格ロードマップ ===== */
+    .price-road {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .price-step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+    .price-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: #dadce0;
+    }
+    .price-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .price-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .price-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .price-body p { font-size: 14px; color: var(--text-muted); }
+
+    /* ===== トレンドテーブル ===== */
+    .source-confirmed { background: #e6f4ea; }
+    .source-single { background: #fef9e7; }
+  </style>
 </head>
 <body>
 
 <!-- ===== Header ===== -->
 <header>
-  <div class="badge">📍 MEO副業・完全手順書 2026年最新版</div>
-  <h1>MEO副業（MDSビジネス）<br>完全手順書</h1>
-  <p>Googleマップ上位表示を武器に、店舗集客を支援しながら<br>月収を積み上げるビジネスモデルをゼロから解説</p>
+  <div class="badge">📍 自分用・実践手順書｜作成日：2026年6月</div>
+  <h1>MEO副業（MDSビジネス）<br>手順書</h1>
+  <p>GBP診断 → 登録整備 → 運用スタート → 月次自動化<br>ゼロから受注・継続収益を作るための実践手順</p>
 </header>
 
 <!-- ===== Navigation ===== -->
 <nav>
   <ul>
-    <li><a href="#basics">MEO基礎</a></li>
-    <li><a href="#mds">MDSの仕組み</a></li>
-    <li><a href="#steps">実践ステップ</a></li>
-    <li><a href="#tools">活用ツール</a></li>
-    <li><a href="#caution">注意点</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#checklist">チェックリスト</a></li>
+    <li><a href="#overview">全体像</a></li>
+    <li><a href="#p1">P1 初回診断</a></li>
+    <li><a href="#p2">P2 登録・整備</a></li>
+    <li><a href="#p3">P3 運用スタート</a></li>
+    <li><a href="#p4">P4 月次自動化</a></li>
+    <li><a href="#pricing">費用・価格</a></li>
+    <li><a href="#trends">2026年トレンド</a></li>
+    <li><a href="#tools">ツール一覧</a></li>
+    <li><a href="#caution">注意事項</a></li>
   </ul>
 </nav>
 
@@ -35,151 +195,184 @@
   <div class="toc">
     <h2>📋 目次</h2>
     <ol>
-      <li><a href="#basics">MEO（マップエンジン最適化）とは？</a></li>
-      <li><a href="#mds">MDSビジネスの仕組みと収益モデル</a></li>
-      <li><a href="#steps">実践ステップ（ゼロから受注まで）</a></li>
-      <li><a href="#tools">活用ツール・リソース</a></li>
-      <li><a href="#caution">注意点・リスク管理</a></li>
-      <li><a href="#faq">よくある質問（FAQ）</a></li>
-      <li><a href="#checklist">実践チェックリスト</a></li>
+      <li><a href="#overview">全体像（4フェーズの流れ）</a></li>
+      <li><a href="#p1">P1｜初回診断（3分GBP診断シート）</a></li>
+      <li><a href="#p2">P2｜登録・整備（GBP設定チェックリスト）</a></li>
+      <li><a href="#p3">P3｜運用スタート（口コミ依頼文・返信テンプレ・投稿ネタ）</a></li>
+      <li><a href="#p4">P4｜月次自動化サイクル（GAS × Claude API）</a></li>
+      <li><a href="#pricing">費用・価格設定ロードマップ</a></li>
+      <li><a href="#trends">2026年のMEOトレンド（出典付き）</a></li>
+      <li><a href="#tools">使うツール一覧</a></li>
+      <li><a href="#caution">注意事項・リスク管理</a></li>
     </ol>
   </div>
 
-  <!-- ===== Section 1: MEO基礎 ===== -->
-  <section id="basics">
+  <!-- ===== 全体像 ===== -->
+  <section id="overview">
     <div class="section-header">
       <div class="section-icon">🗺️</div>
-      <h2>1. MEO（マップエンジン最適化）とは？</h2>
+      <h2>全体像（4フェーズの流れ）</h2>
     </div>
 
-    <div class="highlight-card">
-      <strong>MEO（Map Engine Optimization）の定義</strong><br>
-      GoogleマップやGoogleビジネスプロフィール（旧：Googleマイビジネス）で、特定の検索キーワードに対して上位表示させるための施策のこと。SEOの「マップ版」と考えればわかりやすい。
-    </div>
-
-    <div class="card-grid" style="margin-bottom:20px">
-      <div class="card">
-        <h3>🔍 なぜGoogleマップが重要？</h3>
-        <p>「渋谷 美容院」「新宿 整骨院」のように<strong>地域名＋業種</strong>で検索すると、通常の検索結果よりも先に<strong>Googleマップのローカルパック（上位3店舗）</strong>が表示される。</p>
-        <br>
-        <p>このエリアに入るだけで<strong>電話・予約・来店が激増</strong>するため、店舗オーナーにとって最優先の集客施策となっている。</p>
-      </div>
-      <div class="card">
-        <h3>📊 MEOの市場規模</h3>
-        <p>スマートフォン普及後、「近くの〇〇」系の検索は年々増加。</p>
-        <br>
-        <ul style="padding-left:18px; color:#5f6368; font-size:14px;">
-          <li>Googleマップ月間アクティブユーザー：<strong>10億人以上</strong></li>
-          <li>ローカル検索の46%がその後に来店へ</li>
-          <li>MEOを依頼したい中小店舗は日本全国に数百万店</li>
-          <li>MEO対策の相場：<strong>月3〜5万円</strong>／店舗（2026年最新）</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🏆 MEOで上位表示される3大要素</h3>
-      <br>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;">
-        <div style="text-align:center; padding:20px; background:#f8faff; border-radius:10px; border:1px solid #dadce0;">
-          <div style="font-size:32px; margin-bottom:8px;">📍</div>
-          <strong style="color:#1a73e8;">関連性</strong>
-          <p style="font-size:14px; color:#5f6368; margin-top:8px;">ビジネスプロフィールの情報が検索キーワードとどれだけ一致しているか</p>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-phase">P1<br>初回<br>診断</div>
+        <div class="flow-body">
+          <strong>訪問・営業 → 3分GBP診断シート → A/B/C判定を提示</strong>
+          「無料でGBPの現状を診断します」とアプローチ。課題の可視化から入る。
         </div>
-        <div style="text-align:center; padding:20px; background:#f8faff; border-radius:10px; border:1px solid #dadce0;">
-          <div style="font-size:32px; margin-bottom:8px;">📏</div>
-          <strong style="color:#1a73e8;">距離</strong>
-          <p style="font-size:14px; color:#5f6368; margin-top:8px;">ユーザーの現在地・指定地域からビジネスまでの物理的な距離</p>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">P2<br>登録<br>整備</div>
+        <div class="flow-body">
+          <strong>GBP簡単登録ツールで一緒に設定 → 完了後に再採点</strong>
+          お客様と画面を見ながら入力・登録。スコアの改善を数字で見せる。
         </div>
-        <div style="text-align:center; padding:20px; background:#f8faff; border-radius:10px; border:1px solid #dadce0;">
-          <div style="font-size:32px; margin-bottom:8px;">⭐</div>
-          <strong style="color:#1a73e8;">知名度</strong>
-          <p style="font-size:14px; color:#5f6368; margin-top:8px;">クチコミ数・評価点・被リンクに加え、<strong>GBP上のエンゲージメント</strong>（投稿反応・写真閲覧数など）が2026年から重視</p>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">P3<br>運用<br>スタート</div>
+        <div class="flow-body">
+          <strong>運用ガイド1枚お渡し → お客様が自走スタート</strong>
+          ★最初のアドバイスタイミング。登録直後の意欲が高いうちに渡す。
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">P4<br>月次<br>自動化</div>
+        <div class="flow-body">
+          <strong>データ確認 → レポート自動生成 → 口コミ返信草案 → 投稿入稿 → 請求書 → MTG → 改善</strong>
+          毎月繰り返すサイクル。自動化完成後は1クライアント月1〜1.5時間。
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Section 2: MDSビジネス ===== -->
-  <section id="mds">
+  <!-- ===== P1 ===== -->
+  <section id="p1">
     <div class="section-header">
-      <div class="section-icon">💼</div>
-      <h2>2. MDSビジネスの仕組みと収益モデル</h2>
+      <div class="section-icon">🔍</div>
+      <h2>P1｜初回診断</h2>
     </div>
 
-    <div class="highlight-card success">
-      <strong>MDS（Monthly Dedicated Service）とは？</strong><br>
-      MEO対策を月額制で店舗オーナーに提供する継続型サービスのこと。一度契約すれば毎月安定した収入が見込めるストック型ビジネスモデル。
+    <div class="highlight-card">
+      <strong>目的</strong><br>
+      お客様のGBP（Googleビジネスプロフィール）の現状を数値化し、課題と改善の優先順位を可視化する。
     </div>
 
-    <div class="card-grid" style="margin-bottom:24px;">
-      <div class="card">
-        <h3>💰 収益モデルのイメージ</h3>
-        <div style="background:#f8faff; border-radius:8px; padding:16px; margin-top:12px;">
-          <div style="font-size:13px; color:#5f6368; margin-bottom:4px;">例：月5万円／店舗 × 10店舗</div>
-          <div style="font-size:28px; font-weight:800; color:#1a73e8;">月収 50万円</div>
-          <div style="font-size:13px; color:#5f6368; margin-top:4px;">ストック収入として毎月継続</div>
-        </div>
-        <p style="margin-top:12px; font-size:14px; color:#5f6368;">副業なら3〜5店舗から始めて、慣れてきたら10〜20店舗へ拡大するのが現実的なロードマップ。</p>
-      </div>
-      <div class="card">
-        <h3>🎯 ターゲット業種（受注しやすい）</h3>
-        <div style="margin-top:10px;">
-          <span class="tag tag-blue">美容院・サロン</span>
-          <span class="tag tag-blue">整骨院・整体院</span>
-          <span class="tag tag-blue">歯科医院</span>
-          <span class="tag tag-green">飲食店（居酒屋・ラーメン）</span>
-          <span class="tag tag-green">ネイルサロン</span>
-          <span class="tag tag-green">リラクゼーション</span>
-          <span class="tag tag-yellow">学習塾・スクール</span>
-          <span class="tag tag-yellow">不動産・リフォーム</span>
-          <span class="tag tag-yellow">ペットショップ</span>
-        </div>
-      </div>
-    </div>
-
+    <!-- ステップ1 -->
     <div class="card" style="margin-bottom:20px;">
-      <h3>📦 MDSサービスに含める業務内容（例）</h3>
+      <h3>ステップ1｜初回訪問・営業</h3>
+      <ul style="margin-top:12px; padding-left:20px; color:var(--text-muted); font-size:15px;">
+        <li>「無料でGBPの現状を診断します」とアプローチ</li>
+        <li>持参するもの：名刺、案内チラシ（任意）</li>
+      </ul>
+      <br>
+      <h4 style="font-size:15px; margin-bottom:10px;">🎯 目標業種（競合MEO業者が薄い順）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>業種</th><th>月額目安</th><th>特徴</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>結婚相談所</strong></td>
+              <td>月3〜7万円</td>
+              <td>ROIが高い。競合MEO業者が薄いブルーオーシャン</td>
+            </tr>
+            <tr>
+              <td><strong>動物病院</strong></td>
+              <td>月3〜5万円</td>
+              <td>GBP放置率が高く改善余地が大きい</td>
+            </tr>
+            <tr>
+              <td><strong>士業（税理士・行政書士）</strong></td>
+              <td>月5〜8万円</td>
+              <td>長期継続に発展しやすい。単価高め</td>
+            </tr>
+            <tr>
+              <td><strong>整骨院・鍼灸院</strong></td>
+              <td>月3〜5万円</td>
+              <td>安定需要。施術系は写真映えしやすい</td>
+            </tr>
+            <tr>
+              <td style="color:var(--danger);"><strong>飲食店</strong> ⚠️</td>
+              <td>—</td>
+              <td><strong>競合激戦・ROIが出にくいため避ける</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ステップ2：診断シート -->
+    <div class="card" style="margin-bottom:20px;">
+      <h3>ステップ2｜3分GBP診断シート（15項目）</h3>
+      <p style="margin-top:8px; font-size:14px; color:var(--text-muted);">ファイル：<code>meo_gbp_shindan_sheet.html</code></p>
       <br>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>カテゴリ</th>
-              <th>具体的な業務</th>
-              <th>頻度</th>
-            </tr>
+            <tr><th>セクション</th><th>配点</th><th>チェック内容</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>プロフィール最適化</strong></td>
-              <td>ビジネス名・カテゴリ・説明文・属性の最適化</td>
-              <td>初回〜月1回</td>
+              <td><strong>基本情報の設定</strong></td>
+              <td>各2点／10点満点</td>
+              <td>カテゴリ・NAP・属性・営業時間・説明文</td>
             </tr>
             <tr>
-              <td><strong>投稿（Googleポスト）</strong></td>
-              <td>キャンペーン・お知らせ・イベント投稿</td>
-              <td><strong>週1回以上</strong>（2026年アルゴリズム重要因子）</td>
+              <td><strong>写真・動画・投稿</strong></td>
+              <td>各2点／10点満点</td>
+              <td>枚数・更新頻度・投稿・動画・Q&A</td>
             </tr>
             <tr>
-              <td><strong>写真・動画管理</strong></td>
-              <td>店舗外観・内観・メニュー写真の定期アップ</td>
-              <td>月2〜4回</td>
+              <td><strong>口コミ状況</strong></td>
+              <td>各2点／10点満点</td>
+              <td>件数・スコア・新着ペース・返信率・内容の質</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br>
+      <h4 style="font-size:15px; margin-bottom:10px;">採点基準</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>評価</th><th>点数</th><th>判断基準</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>問題なし</td><td>2点</td><td>十分に設定・運用されている</td></tr>
+            <tr><td>要改善</td><td>1点</td><td>設定はあるが内容が不十分</td></tr>
+            <tr><td>対応が必要</td><td>0点</td><td>未設定または長期放置</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br>
+      <h4 style="font-size:15px; margin-bottom:10px;">総合判定</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>判定</th><th>スコア</th><th>意味</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="score-badge score-a">A判定</span></td>
+              <td>80%以上（24点以上）</td>
+              <td>良好。維持・強化フェーズ</td>
             </tr>
             <tr>
-              <td><strong>クチコミ対応</strong></td>
-              <td>返信テンプレ作成・クチコミ促進施策提案</td>
-              <td><strong>72時間以内に返信</strong>（2026年アルゴリズム重要因子）</td>
+              <td><span class="score-badge score-b">B判定</span></td>
+              <td>50〜79%（15〜23点）</td>
+              <td>改善余地あり。提案チャンス</td>
             </tr>
             <tr>
-              <td><strong>順位計測・レポート</strong></td>
-              <td>キーワード別マップ順位の月次レポート提出</td>
-              <td>月1回</td>
-            </tr>
-            <tr>
-              <td><strong>Q&amp;A管理</strong></td>
-              <td>よくある質問の投稿・回答最適化</td>
-              <td>月1〜2回</td>
+              <td><span class="score-badge score-c">C判定</span></td>
+              <td>50%未満（14点以下）</td>
+              <td>緊急改善案件。受注確度高い</td>
             </tr>
           </tbody>
         </table>
@@ -187,313 +380,593 @@
     </div>
 
     <div class="highlight-card">
-      <strong>💡 なぜ月額制（MDS）が最強なのか？</strong>
-      <ul style="margin-top:10px; padding-left:20px; color:#374151; font-size:15px;">
-        <li>SEO・MEOは継続的な施策が必要 → 自然と長期契約になりやすい</li>
-        <li>一度仕組みを覚えれば、同じ業種なら作業を横展開できる</li>
-        <li>クライアントが解約しにくい（やめると順位が下がることをオーナーが理解している）</li>
-        <li>成果が数字（順位・電話数）で可視化しやすく、継続理由を説明しやすい</li>
+      <strong>💡 営業のコツ：「やらないコスト」を見せる</strong><br>
+      「近くのA院は月8件ペースで口コミ獲得、御社は月2件」という<strong>競合比較を提示</strong>する。商品説明ではなく課題の可視化から入る。
+    </div>
+  </section>
+
+  <!-- ===== P2 ===== -->
+  <section id="p2">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <h2>P2｜登録・整備</h2>
+    </div>
+
+    <div class="highlight-card">
+      <strong>目的</strong><br>
+      GBPの基本情報をすべて正確に設定し、スコアを初期段階から引き上げる。
+    </div>
+
+    <div class="card" style="margin-bottom:20px;">
+      <h3>GBP設定チェックリスト</h3>
+      <p style="margin-top:4px; margin-bottom:16px; font-size:14px; color:var(--text-muted);">ファイル：<code>gbp-practice/index.html</code>（ローカル）でお客様と画面を見ながら一緒に入力・登録</p>
+      <ul class="checklist">
+        <li>メインカテゴリ＋サブカテゴリ（業態に最適化）</li>
+        <li>店舗名・住所・電話番号（NAP統一 ※HPや他サイトとも一致させる）</li>
+        <li>属性タグ（Wi-Fi・駐車場・対応決済・バリアフリーなど）</li>
+        <li>営業時間（祝日・特別日まで設定）</li>
+        <li>ビジネス説明文（750文字以内、地域名＋業種名＋強みを含む）</li>
+        <li>写真10枚以上（外観・内観・スタッフ・商品）</li>
+        <li>Q&A自社投稿（5件以上）</li>
+      </ul>
+    </div>
+
+    <div class="alert alert-success">
+      <span class="alert-icon">📊</span>
+      <div><strong>完了後に診断シートで再採点する</strong><br>
+      登録前後のスコア差をお客様に見せる。スコアが上がった数字が「改善の証拠」になり、継続契約の説得材料になる。</div>
+    </div>
+  </section>
+
+  <!-- ===== P3 ===== -->
+  <section id="p3">
+    <div class="section-header">
+      <div class="section-icon">🚀</div>
+      <h2>P3｜運用スタート <span style="font-size:14px; font-weight:500; color:var(--primary);">★最初のアドバイスタイミング</span></h2>
+    </div>
+
+    <div class="highlight-card success">
+      <strong>目的</strong><br>
+      お客様が自走できる状態を作る。<strong>登録直後の意欲が高いタイミング</strong>に渡すことで定着率が大きく上がる。以下4項目をA4一枚にまとめて渡す。
+    </div>
+
+    <!-- ① 口コミ依頼文 -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3>① 口コミ依頼文のテンプレート</h3>
+      <p style="margin-top:8px; font-size:14px; color:var(--text-muted);">お客様が来店後に送れる依頼文（3パターン）。毎回文章を少し変えて使うこと。</p>
+
+      <div class="alert alert-danger" style="margin:16px 0;">
+        <span class="alert-icon">🚫</span>
+        <div>
+          <strong>注意点（必ず守る）</strong>
+          <ul style="margin-top:6px; padding-left:18px; font-size:14px;">
+            <li>同一IPからの連投はNG（口コミが削除される）</li>
+            <li>テンプレート文の使い回しはNG（毎回少し変える）</li>
+            <li>ガイドライン違反ワード（割引・プレゼント・特典等）はNG</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">パターンA｜LINE用・カジュアル</div>
+        <div class="body">本日はご来院いただきありがとうございました😊
+
+もしよろしければ、Googleマップへの口コミを書いていただけると大変嬉しいです。
+
+来店された感想を、ひと言でも書いていただけるだけで助かります🙏
+
+【口コミ投稿ページ】
+https://g.page/r/（店舗のショートURL）
+
+お時間のあるときにぜひよろしくお願いします！</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">パターンB｜メール用・丁寧</div>
+        <div class="body">〇〇様
+
+本日はご来店いただきまして、誠にありがとうございました。
+
+お客様のご来店が、私たちの大きな励みになっております。
+もしよろしければ、Googleマップにご感想をお寄せいただけますと幸いです。
+
+いただいた口コミは、サービス改善と、同じようなお悩みをお持ちの方への参考として大切に活用させていただきます。
+
+▼ 口コミ投稿はこちら
+https://g.page/r/（店舗のショートURL）
+
+お忙しいところ恐れ入りますが、何卒よろしくお願い申し上げます。
+
+〇〇（店舗名）スタッフ一同</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">パターンC｜短文・汎用（SNS・口頭でも使える）</div>
+        <div class="body">本日はありがとうございました！
+
+Googleマップに感想を書いていただけると嬉しいです⭐
+↓
+https://g.page/r/（店舗のショートURL）
+
+一言でも大丈夫です！よろしくお願いします🙏</div>
+      </div>
+    </div>
+
+    <!-- ② 口コミ返信テンプレート -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3>② 口コミ返信テンプレート</h3>
+      <p style="margin-top:8px; margin-bottom:16px; font-size:14px; color:var(--text-muted);">返信の目標：<strong>全件・72時間以内</strong>（2026年アルゴリズム重要因子）</p>
+
+      <div class="template-card">
+        <div class="label">ポジティブ口コミ用（感謝＋次回来店誘導）</div>
+        <div class="body">〇〇様、この度は温かいお言葉をいただきありがとうございます。
+
+スタッフ一同、励みになります。またのご来店をスタッフ一同心よりお待ちしております。
+引き続きどうぞよろしくお願いいたします。
+
+〇〇（店舗名）</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">ネガティブ口コミ用（謝罪＋改善姿勢の表明）</div>
+        <div class="body">〇〇様、この度はご不満をおかけしてしまい、誠に申し訳ございません。
+
+いただいたご意見はスタッフ全員で共有し、サービス改善に努めてまいります。
+もしよろしければ、直接ご意見をお聞かせいただける機会をいただけますと幸いです。
+
+〇〇（店舗名）スタッフ一同</div>
+      </div>
+    </div>
+
+    <!-- ③ 投稿ネタ -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3>③ 投稿ネタのアイデアリスト（月4回分）</h3>
+      <div style="margin-top:12px; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px;">
+        <div style="background:#f8faff; border-radius:8px; padding:14px; border:1px solid #dadce0;">
+          <div style="font-size:20px; margin-bottom:6px;">👤</div>
+          <strong style="font-size:14px;">来店事例</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">「〇〇でお悩みだった△△様が…」という体験ベースの投稿</p>
+        </div>
+        <div style="background:#f8faff; border-radius:8px; padding:14px; border:1px solid #dadce0;">
+          <div style="font-size:20px; margin-bottom:6px;">🌸</div>
+          <strong style="font-size:14px;">季節のおすすめ</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">季節に合わせたメニュー・サービスの紹介</p>
+        </div>
+        <div style="background:#f8faff; border-radius:8px; padding:14px; border:1px solid #dadce0;">
+          <div style="font-size:20px; margin-bottom:6px;">👩‍⚕️</div>
+          <strong style="font-size:14px;">スタッフ紹介</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">顔が見える投稿。親近感・信頼感が上がる</p>
+        </div>
+        <div style="background:#f8faff; border-radius:8px; padding:14px; border:1px solid #dadce0;">
+          <div style="font-size:20px; margin-bottom:6px;">💆</div>
+          <strong style="font-size:14px;">施術・商品紹介</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">写真・動画とセットで投稿するとエンゲージメント高</p>
+        </div>
+      </div>
+      <div class="alert alert-warning" style="margin-top:16px;">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>2026年コアアップデート対応</strong>：汎用AIコンテンツではなく<strong>「その店ならではの体験投稿」</strong>が評価される。AI文章は必ず人が手を加えてから公開する。</div>
+      </div>
+    </div>
+
+    <!-- ④ 動画 -->
+    <div class="card">
+      <h3>④ 15〜30秒動画の撮影ポイント</h3>
+      <ul style="margin-top:12px; padding-left:20px; color:var(--text-muted); font-size:15px;">
+        <li>スマホで十分。縦型・明るい場所・笑顔のスタッフ</li>
+        <li>月1本を目安にGBPへ投稿</li>
+        <li>動画はGBPエンゲージメントに直結するため優先度高</li>
       </ul>
     </div>
   </section>
 
-  <!-- ===== Section 3: 実践ステップ ===== -->
-  <section id="steps">
+  <!-- ===== P4 ===== -->
+  <section id="p4">
     <div class="section-header">
-      <div class="section-icon">🚀</div>
-      <h2>3. 実践ステップ（ゼロから受注まで）</h2>
+      <div class="section-icon">🤖</div>
+      <h2>P4｜月次自動化サイクル <span style="font-size:14px; font-weight:500; color:var(--success);">毎月繰り返す</span></h2>
     </div>
 
-    <div class="steps">
-      <!-- Step 1 -->
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-body">
-          <h3>Googleビジネスプロフィールを徹底理解する</h3>
-          <p>まず自分でGoogleビジネスプロフィール（GBP）のオーナー確認から設定までを実際に体験することが最重要。架空または自分のサービスで練習アカウントを作ると実感が湧く。</p>
-          <ul>
-            <li>Googleビジネスプロフィール（business.google.com）にアクセス</li>
-            <li>業種カテゴリ・営業時間・説明文の書き方を研究する</li>
-            <li>競合店舗（上位3位）のプロフィールを分析してパターンを掴む</li>
-            <li>Googleのガイドライン（不正表現の禁止事項）を必ず読む</li>
-          </ul>
+    <div class="highlight-card success">
+      <strong>自動化完成後の月次フロー</strong><br>
+      1クライアントあたり月1〜1.5時間に圧縮。10クライアントでも月10〜15時間で回せる。
+    </div>
+
+    <!-- フロー -->
+    <div class="flow" style="margin-bottom:32px;">
+      <div class="flow-item">
+        <div class="flow-phase" style="background:linear-gradient(135deg,#34a853 0%,#1e7e34 100%);">手動<br>5分</div>
+        <div class="flow-body">
+          <strong>月次データ確認</strong>
+          GBP管理画面で表示回数・クリック・口コミ件数を確認
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">自動</div>
+        <div class="flow-body">
+          <strong>レポート自動生成</strong>
+          GA4 API＋サーチコンソールAPIでデータ取得 → Claude APIで文章化 → スライドに自動出力
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">自動</div>
+        <div class="flow-body">
+          <strong>口コミ返信 草案化</strong>
+          GBP APIで新着口コミを自動取得 → Claude APIで返信文を生成 → 確認して送るだけ
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">自動</div>
+        <div class="flow-body">
+          <strong>投稿ネタ選定・入稿</strong>
+          季節・業種・トレンドからClaude APIがネタを生成 → GBP APIでスケジュール投稿（月4回分）
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase">自動</div>
+        <div class="flow-body">
+          <strong>請求書 自動作成・送付</strong>
+          スプレッドシートの契約情報から自動生成 → PDF化してGmailで月末に自動送付 → 確認ボタンを押すだけ
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <div class="flow-phase" style="background:linear-gradient(135deg,#34a853 0%,#1e7e34 100%);">手動<br>MTG</div>
+        <div class="flow-body">
+          <strong>月次ミーティング・改善提案 ★2回目以降のアドバイスタイミング</strong>
+          自動生成レポートをもとに数字の変化を説明 → 来月の施策を提案・追加アドバイス実施
+        </div>
+      </div>
+    </div>
+
+    <!-- 自動化4項目詳細 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>① レポート自動生成</h3>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <tbody>
+              <tr><td>使うAPI</td><td>GA4 Data API、Search Console API</td></tr>
+              <tr><td>処理ツール</td><td>GAS ＋ Claude API</td></tr>
+              <tr><td>出力先</td><td>Googleスライド or パワーポイント</td></tr>
+              <tr><td>難易度</td><td>中（API認証が最初の山）</td></tr>
+              <tr><td>効果</td><td>月2〜3時間削減</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:14px; background:#f8faff; border-radius:8px; padding:14px; font-size:13px; color:var(--text-muted);">
+          <strong style="color:var(--text); display:block; margin-bottom:6px;">月次レポートの構成</strong>
+          1. KPIサマリー（表示回数・クリック・口コミ件数・返信率）<br>
+          2. 競合比較（1位・2位と並べて比較）<br>
+          3. 今月の実施施策と効果<br>
+          4. 来月の施策計画<br>
+          5. 担当者コメント
         </div>
       </div>
 
-      <!-- Step 2 -->
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-body">
-          <h3>ターゲット業種を1つに絞って「特化型」を目指す</h3>
-          <p>最初から複数業種を狙うと知識が分散する。まずは1業種（例：整骨院）に特化してノウハウを積み上げると、提案の質が上がり受注率も高まる。</p>
-          <ul>
-            <li>自分が詳しい・通っている・縁のある業種から始める</li>
-            <li>その業種の上位店舗のGBPを10件以上徹底分析</li>
-            <li>「整骨院特化のMEO専門家」として差別化ポイントを作る</li>
-            <li>同業種のクライアント実績が積まれると紹介案件が発生しやすい</li>
-          </ul>
+      <div class="card">
+        <h3>② 口コミ返信 自動草案化</h3>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <tbody>
+              <tr><td>使うAPI</td><td>Google Business Profile API</td></tr>
+              <tr><td>処理ツール</td><td>GAS ＋ Claude API</td></tr>
+              <tr><td>難易度</td><td>低〜中（一番早く動かせる）</td></tr>
+              <tr><td>効果</td><td>1件5〜10分 → 確認のみ30秒</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:14px; background:#f8faff; border-radius:8px; padding:14px; font-size:13px; color:var(--text-muted);">
+          <strong style="color:var(--text); display:block; margin-bottom:6px;">プロンプト設計のコツ</strong>
+          ・店舗の「口調・キャラクター」をシステムプロンプトに設定<br>
+          ・口コミの星の数・内容・キーワードを入力<br>
+          ・ポジ・ネガを自動判別して文体を変える<br>
+          ・250文字以内で収める設定を入れる
         </div>
       </div>
 
-      <!-- Step 3 -->
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-body">
-          <h3>無料or低価格で「テストクライアント」を獲得する</h3>
-          <p>最初の1〜2件は実績作りのために、3ヶ月無料〜格安（1〜2万円）で受託する。実績なしで高単価は難しいため、この段階は「投資期間」と割り切る。</p>
-          <ul>
-            <li>知人・友人の店舗オーナーに声をかける（最短ルート）</li>
-            <li>Googleマップで順位が低い近隣店舗に飛び込み・DM営業</li>
-            <li>「3ヶ月間無料で試させてください、代わりに成果写真と口コミをいただきます」と提案</li>
-            <li>作業工数・成果のデータを記録しておく（後の提案書に使う）</li>
-          </ul>
+      <div class="card">
+        <h3>③ 投稿ネタ選定・自動入稿</h3>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <tbody>
+              <tr><td>使うAPI</td><td>Google Business Profile API</td></tr>
+              <tr><td>処理ツール</td><td>GAS ＋ Claude API</td></tr>
+              <tr><td>難易度</td><td>中</td></tr>
+              <tr><td>効果</td><td>月4投稿分の企画・文章・入稿が自動化</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-warning" style="margin-top:14px; padding:12px 14px;">
+          <span class="alert-icon" style="font-size:16px;">⚠️</span>
+          <div style="font-size:13px;">「その店ならではの体験・実例」を必ず含ませる。AI生成丸出しの汎用文は評価が下がる。写真・動画とセットで投稿する。</div>
         </div>
       </div>
 
-      <!-- Step 4 -->
-      <div class="step">
-        <div class="step-number">4</div>
-        <div class="step-body">
-          <h3>順位計測・レポートの仕組みを整える</h3>
-          <p>MEO対策の成果を「見える化」することが継続受注の鍵。順位が上がった証拠を毎月レポートで提出するだけで、クライアントの信頼度が大幅に上がる。</p>
-          <ul>
-            <li><strong>GMBspy / Local Falcon / Mapsuggest</strong> などで順位計測を自動化</li>
-            <li>ビフォーアフター比較表を月次レポートに必ず入れる</li>
-            <li>「電話問い合わせ数」「ルート案内数」などGBPのインサイト数値も添付</li>
-            <li>Googleスプレッドシートでテンプレ化して横展開できるようにする</li>
-          </ul>
+      <div class="card">
+        <h3>④ 請求書 自動作成・送付</h3>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <tbody>
+              <tr><td>使うツール</td><td>Googleスプレッドシート ＋ GAS ＋ Gmail</td></tr>
+              <tr><td>難易度</td><td>低（今すぐ作れる）</td></tr>
+              <tr><td>効果</td><td>月末作業が「確認ボタンを押すだけ」</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:14px; background:#f8faff; border-radius:8px; padding:14px; font-size:13px; color:var(--text-muted);">
+          <strong style="color:var(--text); display:block; margin-bottom:6px;">スプレッドシートに持つ情報</strong>
+          ・クライアント名・住所・請求先メールアドレス<br>
+          ・月額料金・契約開始日・支払い期限<br>
+          ・振込先銀行情報
         </div>
       </div>
+    </div>
 
-      <!-- Step 5 -->
-      <div class="step">
-        <div class="step-number">5</div>
-        <div class="step-body">
-          <h3>成果事例をまとめた提案資料を作成する</h3>
-          <p>テストクライアントで実績が出たら、それをもとに「MEO対策提案書」を作成。営業の際の最大の武器になる。</p>
-          <ul>
-            <li>「〇〇院で3ヶ月で1位→3位改善」など具体的数値を入れる</li>
-            <li>GoogleスライドまたはPowerPointで見映えよく作成</li>
-            <li>料金プラン（ライト・スタンダード・プレミアム）を3段階で提示</li>
-            <li>「同業他社がすでに対策している」競合マップを見せると刺さりやすい</li>
-          </ul>
-        </div>
+    <!-- 月次作業時間 -->
+    <div class="card" style="margin-top:24px;">
+      <h3>月次作業時間目安（自動化完成後）</h3>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr><th>作業</th><th>時間</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>月次データ確認</td><td>5〜10分</td></tr>
+            <tr><td>レポート確認・調整</td><td>10〜15分</td></tr>
+            <tr><td>口コミ返信草案の確認・送信</td><td>5〜10分（全件）</td></tr>
+            <tr><td>投稿内容の確認・公開</td><td>5分</td></tr>
+            <tr><td>請求書確認・送付ボタン</td><td>2〜3分</td></tr>
+            <tr><td>月次MTG（お客様との）</td><td>30〜60分</td></tr>
+            <tr style="background:#e8f0fe;">
+              <td><strong>合計（1クライアントあたり）</strong></td>
+              <td><strong>約1〜1.5時間</strong></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <!-- Step 6 -->
-      <div class="step">
-        <div class="step-number">6</div>
-        <div class="step-body">
-          <h3>本営業→月額契約（MDS化）へ移行する</h3>
-          <p>提案書が完成したら、同業種の店舗に対してSNS・メール・飛び込みで営業をかける。月3〜5万円の月額契約を5〜10件獲得することを最初のゴールに設定。</p>
-          <ul>
-            <li>Googleマップで「1ページ目に出ていない店舗」を狙い打ちリストアップ</li>
-            <li>InstagramのDMや店舗メールに提案書PDFを送付</li>
-            <li>月額3万円〜・3ヶ月縛りなしから始めると契約ハードルが下がる</li>
-            <li>契約書はfreee・クラウドサインなどで電子化して信頼感を演出</li>
-          </ul>
-        </div>
+      <div class="alert alert-info" style="margin-top:16px;">
+        <span class="alert-icon">💡</span>
+        <div>10クライアントでも月10〜15時間。残りの時間を新規開拓に使える。</div>
       </div>
+    </div>
+  </section>
 
-      <!-- Step 7 -->
-      <div class="step">
-        <div class="step-number">7</div>
-        <div class="step-body">
-          <h3>業務を仕組み化・外注化してスケールさせる</h3>
-          <p>クライアントが増えてきたら、繰り返し作業をテンプレ化・外注化して自分の時間を解放する。これが副業から「半自動収入」に進化するフェーズ。</p>
-          <ul>
-            <li>Googleポスト投稿・写真追加などルーティン業務はクラウドワークスで外注</li>
-            <li>業務マニュアルをNotionにまとめておく（引き継ぎやすい）</li>
-            <li>紹介特典（例：紹介1件で1ヶ月無料）を設けてリファラル営業を回す</li>
-            <li>10件以上になったら法人化も検討（経費化・信頼感UP）</li>
-          </ul>
+  <!-- ===== 費用・価格 ===== -->
+  <section id="pricing">
+    <div class="section-header">
+      <div class="section-icon">💰</div>
+      <h2>費用・価格設定</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <h3>外注相場（ローカルミエルカ調査）</h3>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr><th>形式</th><th>相場</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>月額固定（最多ゾーン）</td><td><strong>3〜5万円／月・店舗</strong></td></tr>
+            <tr><td>月額固定（幅）</td><td>1〜8万円</td></tr>
+            <tr><td>成果報酬型</td><td>1,200円〜／上位表示日数分</td></tr>
+            <tr><td>初期費用</td><td>0〜5万円</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warning" style="margin-top:16px;">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>成果報酬型の注意：</strong>競合が薄いエリアでは「上位表示されても集客効果が薄いのに費用だけかかる」ケースあり。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>自分の価格設定ロードマップ</h3>
+      <div class="price-road" style="margin-top:16px;">
+        <div class="price-step">
+          <div class="price-dot" style="background:#e8f0fe; color:var(--primary);">1</div>
+          <div class="price-body">
+            <h4>最初の1〜2件：無料または月1〜2万円（実績づくり）</h4>
+            <p>改善前後のスコア差・インプレッション増加を必ず記録する</p>
+          </div>
+        </div>
+        <div class="price-step">
+          <div class="price-dot" style="background:#e6f4ea; color:var(--success);">2</div>
+          <div class="price-body">
+            <h4>3〜5件目：月3〜4万円</h4>
+            <p>継続実績・口コミ（紹介）が出てくる</p>
+          </div>
+        </div>
+        <div class="price-step">
+          <div class="price-dot" style="background:#fef9e7; color:#b45309;">3</div>
+          <div class="price-body">
+            <h4>6件〜：月5万円以上に引き上げ</h4>
+            <p>自動化が完成すれば工数は増えない</p>
+          </div>
+        </div>
+        <div class="price-step">
+          <div class="price-dot" style="background:#fce8e6; color:var(--danger);">4</div>
+          <div class="price-body">
+            <h4>10件以上：OEM（外注）を検討</h4>
+            <p>元請けに月額の30〜40%を払う構造。最初の1〜2件は自分で運用して仕組みを理解してから。</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Section 4: ツール ===== -->
+  <!-- ===== 2026年トレンド ===== -->
+  <section id="trends">
+    <div class="section-header">
+      <div class="section-icon">📊</div>
+      <h2>2026年のMEOトレンド（裏付きの情報のみ）</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:20px;">
+      <h3 style="color:var(--success);">✅ 確認済み・複数ソースで裏付けあり</h3>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr><th>トレンド</th><th>内容</th><th>出典</th></tr>
+          </thead>
+          <tbody>
+            <tr class="source-confirmed">
+              <td><strong>GBP＋口コミが評価の52%支配</strong></td>
+              <td>関連性32%＋口コミ20%。自分でコントロールできる最大の要素</td>
+              <td>Asantech（160社支援）</td>
+            </tr>
+            <tr class="source-confirmed">
+              <td><strong>2026年3月コアアップデート</strong></td>
+              <td>E-E-A-Tの「Experience（実体験）」が強化。AI生成丸出しコンテンツを排除</td>
+              <td>Google公式文書引用（インフォメーション社note）</td>
+            </tr>
+            <tr class="source-confirmed">
+              <td><strong>口コミの「質」が評価軸に</strong></td>
+              <td>100文字以上の体験談・写真付きが高評価。星だけ・短文はほぼ無効</td>
+              <td>Asantech・複数ソース</td>
+            </tr>
+            <tr class="source-confirmed">
+              <td><strong>月額3〜5万円が市場最多</strong></td>
+              <td>外注費用の実際の相場</td>
+              <td>ローカルミエルカ独自データ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:#b45309;">⚠️ 単一ソースのみ（参考情報・自分で確認すること）</h3>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr><th>トレンド</th><th>内容</th><th>注意</th></tr>
+          </thead>
+          <tbody>
+            <tr class="source-single">
+              <td><strong>結婚相談所・動物病院がブルーオーシャン</strong></td>
+              <td>競合MEO業者が薄い</td>
+              <td>ほんね丸（MDS誘導記事）のみ。<strong>自分でGoogleマップで競合状況を確認すること</strong></td>
+            </tr>
+            <tr class="source-single">
+              <td><strong>継続率90%超</strong></td>
+              <td>月次レポートの質で維持できる</td>
+              <td>ほんね丸のみ</td>
+            </tr>
+            <tr class="source-single">
+              <td><strong>MEO市場2028年306億円予測</strong></td>
+              <td>2023年GMO TECH調査が出典</td>
+              <td>2024年108億円という数字はほんね丸の加工版の可能性あり</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ツール一覧 ===== -->
   <section id="tools">
     <div class="section-header">
       <div class="section-icon">🛠️</div>
-      <h2>4. 活用ツール・リソース</h2>
+      <h2>使うツール一覧</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ツール</th><th>用途</th><th>ファイル / URL</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GBP診断シート</strong></td>
+            <td>初回診断・提示</td>
+            <td><code>meo_gbp_shindan_sheet.html</code></td>
+          </tr>
+          <tr>
+            <td><strong>GBP簡単登録ツール</strong></td>
+            <td>お客様と一緒に設定</td>
+            <td><code>gbp-practice/index.html</code></td>
+          </tr>
+          <tr>
+            <td><strong>月次レポート</strong></td>
+            <td>毎月の報告</td>
+            <td><code>meo_monthly_report.html</code></td>
+          </tr>
+          <tr>
+            <td><strong>提案スライド</strong></td>
+            <td>初回プレゼン</td>
+            <td><code>MEO_jigyou_proposal.pptx</code></td>
+          </tr>
+          <tr>
+            <td><strong>GAS × Claude API</strong></td>
+            <td>自動化全般（レポート・口コミ返信・投稿・請求書）</td>
+            <td>要構築</td>
+          </tr>
+          <tr>
+            <td><strong>Googleスプレッドシート</strong></td>
+            <td>契約情報・請求書管理</td>
+            <td>要作成</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 注意事項 ===== -->
+  <section id="caution">
+    <div class="section-header">
+      <div class="section-icon">⚠️</div>
+      <h2>注意事項・リスク管理</h2>
     </div>
 
     <div class="card-grid">
       <div class="card">
-        <span class="tag tag-blue">無料</span>
-        <h3 style="margin-top:8px;">Googleビジネスプロフィール</h3>
-        <p>クライアントのGBP管理・投稿・写真追加・Q&A対応の中心ツール。代行管理はオーナーからの招待が必要。</p>
-        <p style="margin-top:8px; font-size:13px; color:#1a73e8;">business.google.com</p>
-      </div>
-      <div class="card">
-        <span class="tag tag-blue">無料〜有料</span>
-        <h3 style="margin-top:8px;">Local Falcon</h3>
-        <p>Googleマップのローカル順位をグリッド表示で可視化できるツール。ヒートマップで「どのエリアで何位か」が一目でわかる。レポートにそのまま使える。</p>
-      </div>
-      <div class="card">
-        <span class="tag tag-green">無料</span>
-        <h3 style="margin-top:8px;">Googleスプレッドシート</h3>
-        <p>順位トラッキング表・月次レポートのテンプレ作成・クライアント管理に活用。Googleと親和性が高くそのまま共有できる。</p>
-      </div>
-      <div class="card">
-        <span class="tag tag-blue">無料〜有料</span>
-        <h3 style="margin-top:8px;">Canva</h3>
-        <p>月次レポートや提案書のデザインに活用。テンプレートが豊富でノンデザイナーでも見映えの良い資料が作れる。</p>
-      </div>
-      <div class="card">
-        <span class="tag tag-yellow">有料</span>
-        <h3 style="margin-top:8px;">クラウドサイン / freee</h3>
-        <p>月額契約書の電子署名に使用。電子契約書があるだけでクライアントからの信頼感が大幅に向上する。</p>
-      </div>
-      <div class="card">
-        <span class="tag tag-green">無料</span>
-        <h3 style="margin-top:8px;">ChatGPT / Claude</h3>
-        <p>Googleポスト文章・クチコミ返信テンプレ・提案書文章の下書き生成に活用。作業時間を大幅に圧縮できる。</p>
-      </div>
-    </div>
-
-    <div class="highlight-card" style="margin-top:24px;">
-      <strong>🆕 2026年 GBP新機能（要チェック）</strong>
-      <ul style="margin-top:10px; padding-left:20px; color:#374151; font-size:15px;">
-        <li><strong>メニューAI自動入力</strong>：飲食店向け。写真からAIがメニューを自動読み取り・登録</li>
-        <li><strong>クーポン表示</strong>：Googleマップ上に割引クーポンを直接表示できる新機能</li>
-        <li><strong>複数店舗一括投稿</strong>：チェーン店・複数店舗管理の作業効率が大幅改善</li>
-        <li><strong>予約投稿</strong>：Googleポストを事前に予約してスケジュール管理が可能に</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== Section 5: 注意点 ===== -->
-  <section id="caution">
-    <div class="section-header">
-      <div class="section-icon">⚠️</div>
-      <h2>5. 注意点・リスク管理</h2>
-    </div>
-
-    <div class="alert alert-danger" style="margin-bottom:16px;">
-      <span class="alert-icon">🚨</span>
-      <div><strong>【2026年3月コアアップデート】取り締まり強化！</strong><br>
-      Googleは2026年3月のコアアップデートでビジネス名へのキーワード詰め込みを行った多数のGBPを強制停止しました。鍵屋・引越し業者・工務店などで特に多発。既存クライアントのプロフィールを今すぐ確認してください。</div>
-    </div>
-
-    <div class="alert alert-danger" style="margin-bottom:20px;">
-      <span class="alert-icon">🚫</span>
-      <div><strong>Googleガイドライン違反に注意！</strong><br>ガイドライン違反はアカウント停止・ペナルティに直結します。クライアントのGBPを失うことは最大のリスクです。</div>
-    </div>
-
-    <div class="card-grid" style="margin-bottom:24px;">
-      <div class="card">
-        <h3>🔴 絶対にやってはいけないこと</h3>
-        <ul style="padding-left:18px; color:#5f6368; font-size:14px; margin-top:8px;">
-          <li>ビジネス名にキーワードを不正に詰め込む<br>（例：「渋谷の美容院|カット安い」）</li>
-          <li>実在しない住所でGBPを作成・申請する</li>
-          <li>クチコミを自作自演・購入する</li>
-          <li>競合店舗のクチコミに悪い評価を投稿する</li>
-          <li>複数のGBPを同一店舗に重複作成する</li>
+        <h3>🔴 口コミ関連</h3>
+        <ul style="margin-top:10px; padding-left:18px; color:var(--text-muted); font-size:14px;">
+          <li>代行業者へのアウトソースは禁止（Googleガイドライン違反）</li>
+          <li>同一IPからの連投で口コミが削除される</li>
+          <li>インセンティブ（割引・プレゼント）と引き換えの口コミ依頼はNG</li>
         </ul>
       </div>
+
       <div class="card">
-        <h3>🟡 契約前に必ず確認すること</h3>
-        <ul style="padding-left:18px; color:#5f6368; font-size:14px; margin-top:8px;">
-          <li>GBPのオーナー確認が完了しているか</li>
-          <li>既存の代行業者がいないか</li>
-          <li>過去にペナルティを受けていないか</li>
-          <li>契約範囲（GBP以外の作業も求められないか）</li>
-          <li>解約条件・成果保証の有無</li>
+        <h3>🟡 2026年コアアップデート対応</h3>
+        <ul style="margin-top:10px; padding-left:18px; color:var(--text-muted); font-size:14px;">
+          <li>AI生成コンテンツの丸投げ投稿はペナルティリスクあり</li>
+          <li>必ず「人の監修」を加えてから公開する</li>
+          <li>GBPの投稿・回答は「その店ならでは」の体験・情報を含める</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🟢 OEM（外注）を使う場合</h3>
+        <ul style="margin-top:10px; padding-left:18px; color:var(--text-muted); font-size:14px;">
+          <li>10件以上からが現実的</li>
+          <li>元請けに月額の30〜40%を払う構造</li>
+          <li>最初の1〜2件は自分で運用して仕組みを理解してから外注する</li>
         </ul>
       </div>
     </div>
 
-    <div class="alert alert-warning">
-      <span class="alert-icon">💡</span>
-      <div><strong>「順位1位保証」は絶対にしてはいけない</strong><br>
-      MEO順位はGoogleのアルゴリズムが決めるため、100%の保証は不可能です。「上位表示を目指した施策を継続的に実施する」という表現に留めましょう。</div>
-    </div>
-
-    <div class="alert alert-info" style="margin-top:16px;">
-      <span class="alert-icon">📋</span>
-      <div><strong>確定申告を忘れずに</strong><br>
-      副業収入が年間20万円を超えたら確定申告が必要です。経費（ツール費・通信費・書籍代など）をしっかり記録しておきましょう。freee・マネーフォワード確定申告が便利です。</div>
-    </div>
-  </section>
-
-  <!-- ===== Section 6: FAQ ===== -->
-  <section id="faq">
-    <div class="section-header">
-      <div class="section-icon">❓</div>
-      <h2>6. よくある質問（FAQ）</h2>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:16px;">
-
-      <div class="card">
-        <h3>Q. 未経験でもできますか？</h3>
-        <p style="margin-top:8px;">できます。必要な知識はGoogleが無料で公開しているヘルプドキュメントと、競合分析（上位店舗のGBPを観察すること）で習得できます。まず自分のGBPか練習用アカウントを作って動かしてみることが最短の学習法です。</p>
+    <div class="highlight-card" style="margin-top:20px;">
+      <strong>自動化で浮いた時間の使い道</strong>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr><th>自動化される作業（毎月削減）</th><th>浮いた時間の使い道</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>レポートのデータ収集・コピペ</td><td>新規お客様への営業</td></tr>
+            <tr><td>口コミ返信文の作成（1件5〜10分）</td><td>既存クライアントとの関係深化</td></tr>
+            <tr><td>投稿ネタ出し・文章化・入稿</td><td>自身のMEO知識の深化</td></tr>
+            <tr><td>請求書の作成・PDF化・送付</td><td>次の自動化ツール構築</td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="card">
-        <h3>Q. 初月から稼げますか？</h3>
-        <p style="margin-top:8px;">初月から収入を得ることは可能ですが、初案件はテストクライアント（無料〜低価格）として実績を作る期間と考えてください。多くの場合、本格的に月額3〜5万円のクライアントを獲得できるのは1〜3ヶ月目が目安です。</p>
-      </div>
-
-      <div class="card">
-        <h3>Q. 1件あたり何時間くらいかかりますか？</h3>
-        <p style="margin-top:8px;">初期設定：5〜10時間、月次業務：2〜4時間／件が目安です。慣れてきてテンプレ化が進むと、1件あたり月2時間以下まで圧縮できます。10件で月20時間以下というのが現実的な目標です。</p>
-      </div>
-
-      <div class="card">
-        <h3>Q. 副業禁止の会社でもできますか？</h3>
-        <p style="margin-top:8px;">副業に関するルールは会社によって異なります。副業禁止規定がある場合は、まず就業規則を確認し、必要であれば会社に相談してください。個人事業主として登録する場合は税務署への開業届も必要です。</p>
-      </div>
-
-      <div class="card">
-        <h3>Q. 競合（他のMEO代行業者）と差別化するには？</h3>
-        <p style="margin-top:8px;">①特定業種への特化（「整骨院専門」など）、②月次レポートの質の高さ、③レスポンスの速さ、④Googleポスト投稿文の質（ChatGPT活用）、の4点が差別化の柱になります。特に「業種特化＋丁寧なレポート」は最も効果的です。</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Section 7: チェックリスト ===== -->
-  <section id="checklist">
-    <div class="section-header">
-      <div class="section-icon">✅</div>
-      <h2>7. 実践チェックリスト</h2>
-    </div>
-
-    <div class="card" style="margin-bottom:24px;">
-      <h3 style="color:#1a73e8; margin-bottom:16px;">📌 スタートアップフェーズ（0〜1ヶ月目）</h3>
-      <ul class="checklist">
-        <li>Googleビジネスプロフィールのガイドラインを読んだ</li>
-        <li>練習用GBPまたは既存店舗のGBPで設定を一通り触った</li>
-        <li>ターゲット業種を1つ決め、上位10店舗のGBPを分析した</li>
-        <li>順位計測ツール（Local Falconなど）のアカウントを作成した</li>
-        <li>テストクライアント（知人・飛び込み）候補を3件以上リストアップした</li>
-      </ul>
-    </div>
-
-    <div class="card" style="margin-bottom:24px;">
-      <h3 style="color:#34a853; margin-bottom:16px;">📌 実績作りフェーズ（1〜3ヶ月目）</h3>
-      <ul class="checklist">
-        <li>テストクライアント1件以上の契約（無料〜格安）を取得した</li>
-        <li>月次レポートのテンプレートをGoogleスライドで作成した</li>
-        <li>クチコミ促進の仕組み（POPやLINE告知）を提案・導入した</li>
-        <li>Googleポスト投稿を週1回以上継続できている（2026年アルゴリズム重要因子）</li>
-        <li>ビフォーアフターの順位変化データを記録している</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3 style="color:#fbbc04; margin-bottom:16px;">📌 スケールフェーズ（3〜6ヶ月目〜）</h3>
-      <ul class="checklist">
-        <li>成果事例をまとめた提案書（PDF）を作成した</li>
-        <li>月額3〜5万円の本契約クライアントを3件以上獲得した</li>
-        <li>契約書（電子署名）のフォーマットを用意した</li>
-        <li>ルーティン業務の外注化・マニュアル化を始めた</li>
-        <li>紹介特典制度を設け、既存クライアントに案内した</li>
-        <li>月収が20万円を超えたら開業届・確定申告の準備を始めた</li>
-      </ul>
     </div>
   </section>
 
@@ -501,9 +974,9 @@
 
 <!-- ===== Footer ===== -->
 <footer>
-  <strong>MEO副業（MDSビジネス）完全手順書</strong>
-  <p>Googleビジネスプロフィールの仕様・アルゴリズムは随時変更されます。最新情報はGoogleの公式ヘルプをご確認ください。</p>
-  <p style="margin-top:12px; font-size:12px; opacity:0.5;">本サイトは学習・情報共有を目的として作成されています。</p>
+  <strong>MEO副業（MDSビジネス）手順書</strong>
+  <p>作成日：2026年6月　／　対象：自分用・実践手順書</p>
+  <p style="margin-top:8px; font-size:12px; opacity:0.5;">情報の出典・確度は「2026年のMEOトレンド」セクションを参照。このファイルは随時更新する。</p>
 </footer>
 
 </body>
